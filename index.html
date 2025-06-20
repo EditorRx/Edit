@@ -28,18 +28,25 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 10s linear infinite;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      color: #00fff7;
-    }
+   .marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite, colorChange 5s linear infinite;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+   }
 
     @keyframes marquee {
       0%   { transform: translate(0, 0); }
       100% { transform: translate(-100%, 0); }
+    }
+
+    @keyframes colorChange {
+  0% { color: #00fff7; }
+  25% { color: #ff00ff; }
+  50% { color: #00ff00; }
+  75% { color: #ffcc00; }
+  100% { color: #00fff7; }
     }
 
     header {
