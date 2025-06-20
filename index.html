@@ -145,6 +145,26 @@ img {
   margin-bottom: 10px;
 }
     </style>
+    <style>
+.glow-border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+  background-size: 400% 400%;
+  animation: glowMove 5s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes glowMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+</style>
+
+<div class="glow-border"></div>
     <h1>𓆩Rx𓆪</h1>
     <p>I edit video clips to make it more better in my own way.</p>
   </header>
@@ -178,7 +198,7 @@ img {
   </section>
 
   <section class="reminder">
-  <h2 style="color: #ff0000; text-align: left;">🎗️Reminder</h2>
+  <h2 style="color: #ff0000; text-align: left;">👾Reminder</h2>
   <p>
     Editrek is my own YouTube channel, but due to some reason, it is no longer with me and I no longer have control over it.
   </p>
