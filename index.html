@@ -19,6 +19,26 @@
       line-height: 1.6;
     }
 
+    body {
+  margin: 0;
+  padding: 0;
+  border: 10px solid;
+  border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  animation: borderSpin 5s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% {
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  }
+  50% {
+    border-image: linear-gradient(225deg, violet, indigo, blue, green, yellow, orange, red) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
+  }
+}
+
     .marquee {
       width: 100%;
       overflow: hidden;
@@ -146,7 +166,7 @@ img {
 }
     </style>
     <h1>𓆩Rx𓆪</h1>
-    <p>I edit video clips to make it more better in my own way .</p>
+    <p>I edit video clips to make it more better in my own way.</p>
   </header>
 
   <section>
@@ -178,7 +198,7 @@ img {
   </section>
 
   <section class="reminder">
-  <h2 style="color: #ff0000; text-align: left;">⚠️Reminder</h2>
+  <h2 style="color: #ff0000; text-align: left;">🎗️Reminder</h2>
   <p>
     Editrek is my own YouTube channel, but due to some reason, it is no longer with me and I no longer have control over it.
   </p>
