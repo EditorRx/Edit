@@ -19,12 +19,13 @@
       line-height: 1.6;
     }
 
-    <audio id="bg-music" loop>
-  <source src="music/pirate_theme.mp3" type="audio/mp3">
+     <audio id="bg-music" loop>	
+   <source src="music/pirate_theme.mp3" type="audio/mp3">
+    <button onclick="music.play()">Start Music (If Not Playing)</button>
   Your browser does not support the audio element.
-</audio>
+  </audio>
 
-<div id="music-toggle" style="
+ <div id="music-toggle" style="
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -40,48 +41,9 @@
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
   ">🔊 Music On</button>
-</div>
+  </div>
 
-<script>
-  const music = document.getElementById("bg-music");
-  const btn = document.getElementById("music-btn");
-  let isPlaying = true;
-
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      btn.textContent = "🔇 Music Off";
-    } else {
-      music.play();
-      btn.textContent = "🔊 Music On";
-    }
-    isPlaying = !isPlaying;
-  }
-
-  // Play music after user enters (trigger inside validateEntry)
-  function validateEntry() {
-    const name = document.getElementById('username').value.trim();
-    const age = parseInt(document.getElementById('userage').value);
-    if (!name || isNaN(age)) {
-      alert("Please fill in both name and age.");
-      return;
-    }
-    if (age < 6) {
-      alert("Sorry, you must be at least 6 years old to view this site.");
-      return;
-    }
-
-    document.getElementById('entry-card').style.display = 'none';
-    document.getElementById('main-website').style.display = 'block';
-
-    // 🔥 Trigger audio here
-    music.play().catch(() => {
-      console.log("Autoplay blocked. User must click the toggle.");
-    });
-  }
-</script>
-
-    .entry-card {
+     .entry-card {
       position: fixed;
       top: 0;
       left: 0;
@@ -433,6 +395,45 @@ header img {
       btn.textContent = "🔊 Music On";
     }
     isPlaying = !isPlaying;
+  }
+  </script>
+
+  <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-btn");
+  let isPlaying = true;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      btn.textContent = "🔇 Music Off";
+    } else {
+      music.play();
+      btn.textContent = "🔊 Music On";
+    }
+    isPlaying = !isPlaying;
+  }
+
+  // Play music after user enters (trigger inside validateEntry)
+  function validateEntry() {
+    const name = document.getElementById('username').value.trim();
+    const age = parseInt(document.getElementById('userage').value);
+    if (!name || isNaN(age)) {
+      alert("Please fill in both name and age.");
+      return;
+    }
+    if (age < 6) {
+      alert("Sorry, you must be at least 6 years old to view this site.");
+      return;
+    }
+
+    document.getElementById('entry-card').style.display = 'none';
+    document.getElementById('main-website').style.display = 'block';
+
+    // 🔥 Trigger audio here
+    music.play().catch(() => {
+      console.log("Autoplay blocked. User must click the toggle.");
+    });
   }
   </script>
 
