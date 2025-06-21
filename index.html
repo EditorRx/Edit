@@ -53,30 +53,8 @@
       cursor: pointer;
       box-shadow: 0 0 10px #00fff7;
     }
-
-    <audio id="bg-music" autoplay loop muted>
-  <source src="music/pirate_theme.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<div id="music-toggle" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10000;
-">
-  <button onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  ">🔊 Music On</button>
-</div>
     
-    .marquee {
+     .marquee {
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
@@ -184,6 +162,28 @@
 
 <!-- Main Website Content (Hidden Initially) -->
 <div id="main-website" style="display: none;">
+
+  <audio id="bg-music" autoplay loop muted>
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  ">🔊 Music On</button>
+</div>
    
    <div class="marquee">
     <span>Welcome to Rahul 𔒝 kushwaha Edit store ~ Premium Edit Showcase!</span>
