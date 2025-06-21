@@ -19,30 +19,6 @@
       line-height: 1.6;
     }
 
-     <audio id="bg-music" loop>	
-   <source src="music/pirate_theme.mp3" type="audio/mp3">
-    <button onclick="music.play()">Start Music (If Not Playing)</button>
-  Your browser does not support the audio element.
-  </audio>
-
- <div id="music-toggle" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10000;
-">
-  <button id="music-btn" onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.15);
-    color: #00fff7;
-    border: 1px solid #00fff7;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-  ">🔊 Music On</button>
-  </div>
-
      .entry-card {
       position: fixed;
       top: 0;
@@ -310,6 +286,31 @@ header img {
       </div>
     </div>
   </section>
+
+  <audio id="bg-music" loop>	
+   <source src="music/pirate_theme.mp3" type="audio/mp3">
+    <button onclick="music.play()">Start Music (If Not Playing)</button>
+  Your browser does not support the audio element.
+  </audio>
+
+ <div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button id="music-btn" onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.15);
+    color: #00fff7;
+    border: 1px solid #00fff7;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  ">🔊 Music On</button>
+ </div>
+  
 
   <section class="about">
     <h2>About Me</h2>
