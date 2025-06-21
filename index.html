@@ -153,7 +153,7 @@
   <!-- Entry Card -->
 <div id="entry-card" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; z-index: 99999;">
   <div style="background: rgba(0, 0, 0, 0.6); padding: 30px 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px gold;">
-    <h2 style="color: white; margin-bottom: 20px;">verify you're Human!</h2>
+    <h2 style="color: white; margin-bottom: 20px;">verify you're Human♥</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <button onclick="validateEntry()" style="background: #24243e; color: #00fff7; padding: 10px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">View Premium Edits</button>
@@ -167,6 +167,51 @@
   </div>
 
   <header>
+    <!-- 🔴 Banner Container with Image -->
+<div class="banner-container">
+  <img src="assets/banner.jpg" alt="Banner" class="banner-img">
+</div>
+
+<!-- 🇮🇳 Glowing Tricolor Line -->
+<div class="flag-line"></div>
+
+<!-- ✅ Add this to your <style> section inside <head> -->
+<style>
+  .banner-container {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .flag-line {
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+    background-size: 200% auto;
+    animation: scrollFlag 6s linear infinite;
+    box-shadow: 0 0 12px 3px #ffffff88;
+    z-index: 3;
+  }
+
+  @keyframes scrollFlag {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>
+    
     <img src="logo/logo.png" alt="Logo" style="
   width: 60px; 
   height: 60px; 
