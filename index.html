@@ -53,6 +53,17 @@
       cursor: pointer;
       box-shadow: 0 0 10px #00fff7;
     }
+
+    <div id="music-toggle" style="position: fixed; top: 15px; right: 15px; z-index: 10000;">
+  <button onclick="toggleMusic()" style="padding: 6px 10px; border: none; border-radius: 6px; background: #00fff7; color: #000; font-weight: bold; cursor: pointer;">
+    🔊 Music On
+  </button>
+</div>
+
+<audio id="bg-music" loop autoplay style="display: none;">
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
     
     .marquee {
       width: 100%;
@@ -341,6 +352,49 @@ header img {
     document.getElementById('entry-card').style.display = 'none';
     document.getElementById('main-website').style.display = 'block';
   }
+  </script>
+
+  <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.querySelector("#music-toggle button");
+
+  let isPlaying = true;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      btn.textContent = "🔇 Music Off";
+    } else {
+      music.play();
+      btn.textContent = "🔊 Music On";
+    }
+    isPlaying = !isPlaying;
+  }
+  </script>
+
+  <script>
+  const backgroundMusic = document.getElementById("bg-music");
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach(video => {
+    video.addEventListener("play", () => {
+      if (!backgroundMusic.paused) {
+        backgroundMusic.pause();
+      }
+    });
+
+    video.addEventListener("ended", () => {
+      backgroundMusic.play();
+    });
+
+    video.addEventListener("pause", () => {
+      // Optional: resume music only if no other video is playing
+      const isAnyPlaying = [...videos].some(v => !v.paused && !v.ended);
+      if (!isAnyPlaying) {
+        backgroundMusic.play();
+      }
+    });
+  });
   </script>
 
 </body>
