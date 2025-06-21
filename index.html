@@ -19,6 +19,68 @@
       line-height: 1.6;
     }
 
+    <audio id="bg-music" loop>
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button id="music-btn" onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.15);
+    color: #00fff7;
+    border: 1px solid #00fff7;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  ">🔊 Music On</button>
+</div>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-btn");
+  let isPlaying = true;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      btn.textContent = "🔇 Music Off";
+    } else {
+      music.play();
+      btn.textContent = "🔊 Music On";
+    }
+    isPlaying = !isPlaying;
+  }
+
+  // Play music after user enters (trigger inside validateEntry)
+  function validateEntry() {
+    const name = document.getElementById('username').value.trim();
+    const age = parseInt(document.getElementById('userage').value);
+    if (!name || isNaN(age)) {
+      alert("Please fill in both name and age.");
+      return;
+    }
+    if (age < 6) {
+      alert("Sorry, you must be at least 6 years old to view this site.");
+      return;
+    }
+
+    document.getElementById('entry-card').style.display = 'none';
+    document.getElementById('main-website').style.display = 'block';
+
+    // 🔥 Trigger audio here
+    music.play().catch(() => {
+      console.log("Autoplay blocked. User must click the toggle.");
+    });
+  }
+</script>
+
     .entry-card {
       position: fixed;
       top: 0;
@@ -40,7 +102,7 @@
       border: none;
       border-radius: 5px;
       outline: none;
-      box-shadow: 0 0 15px gold;
+    box-shadow: 0 0 15px gold;
     }
 
     .entry-card button {
@@ -159,34 +221,11 @@
     <button onclick="validateEntry()" style="background: #24243e; color: #00fff7; padding: 10px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">View Premium Edits</button>
   </div>
 </div>
-
-  <audio id="bg-music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<div id="music-toggle" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10000;
-">
-  <button onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.15);
-    color: #00fff7;
-    border: 1px solid #00fff7;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-  ">🔊 Music On</button>
-</div>
 <!-- Main Website Content (Hidden Initially) -->
 <div id="main-website" style="display: none;">
  
   <div class="marquee">
-    <span>Welcome to Rahul 𔒝 kushwaha Edit store ~ Premium Edit Showcase!</span>
+    <span>Welcome to Rahul 𔒝 kushwaha Edit store ~ Premium Edit Showcase</span>
   </div>
 
   <header>
@@ -272,7 +311,7 @@ header img {
     <source src="Edits/Edit3.mp4" type="video/mp4">
   </video>
   <p class="video-title" style="margin-top: 5px; color: #c8ed42; font-size: 0.9rem;">
-    Edit 3: 6 Avengers × Life force [Rj pasin].
+    Edit 3: six Avengers × Life force [Rj pasin].
   </p>
       </div>
       <div class="video-block" style="text-align: center;">
@@ -362,10 +401,6 @@ header img {
     }
     document.getElementById('entry-card').style.display = 'none';
     document.getElementById('main-website').style.display = 'block';
-
-    // ✅ Play music when user enters
-  const music = document.getElementById("bg-music");
-  music.play();
   }
   </script>
   
