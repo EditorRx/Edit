@@ -53,6 +53,28 @@
       cursor: pointer;
       box-shadow: 0 0 10px #00fff7;
     }
+
+    <audio id="bg-music" autoplay loop>
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  ">🔊 Music On</button>
+</div>
     
     .marquee {
       width: 100%;
@@ -327,6 +349,35 @@ header img {
   </div>
 
   <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.querySelector("#music-toggle button");
+
+  let isPlaying = true;
+
+  window.addEventListener("load", () => {
+    const playPromise = music.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay might be blocked
+        isPlaying = false;
+        btn.textContent = "🔇 Music Off";
+      });
+    }
+  });
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      btn.textContent = "🔇 Music Off";
+    } else {
+      music.play();
+      btn.textContent = "🔊 Music On";
+    }
+    isPlaying = !isPlaying;
+  }
+  </script>
+
+  <script>
   function validateEntry() {
     const name = document.getElementById('username').value.trim();
     const age = parseInt(document.getElementById('userage').value);
@@ -343,48 +394,7 @@ header img {
   }
   </script>
 
-  <script>
-  const music = document.getElementById("bg-music");
-  const btn = document.querySelector("#music-toggle button");
-
-  let isPlaying = true;
-
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      btn.textContent = "🔇 Music Off";
-    } else {
-      music.play();
-      btn.textContent = "🔊 Music On";
-    }
-    isPlaying = !isPlaying;
-  }
-  </script>
-
-  <script>
-  const backgroundMusic = document.getElementById("bg-music");
-  const videos = document.querySelectorAll("video");
-
-  videos.forEach(video => {
-    video.addEventListener("play", () => {
-      if (!backgroundMusic.paused) {
-        backgroundMusic.pause();
-      }
-    });
-
-    video.addEventListener("ended", () => {
-      backgroundMusic.play();
-    });
-
-    video.addEventListener("pause", () => {
-      // Optional: resume music only if no other video is playing
-      const isAnyPlaying = [...videos].some(v => !v.paused && !v.ended);
-      if (!isAnyPlaying) {
-        backgroundMusic.play();
-      }
-    });
-  });
-  </script>
+  
 
 </body>
 </html>
