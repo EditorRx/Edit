@@ -361,7 +361,7 @@ header img {
     font-size: 0.85rem;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-  ">🔊Music on</button>
+  ">🔇 pause music</button>
 </div>
 
   <script>
@@ -420,10 +420,10 @@ videos.forEach(video => {
   function toggleMusic() {
     if (!isPlaying) {
       music.play();
-      btn.textContent = "🔊 Music off";
+      btn.textContent = "🔇 pause music";
     } else {
       music.pause();
-      btn.textContent = "🔇 Music on";
+      btn.textContent = "🔊 play Music";
     }
     isPlaying = !isPlaying;
   }
