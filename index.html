@@ -186,10 +186,20 @@
   }
 
   .banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  }
+
+  .banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 170px; /* limit height if needed */
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* no round corners */
+  box-shadow: none !important; /* remove glow if applied */
   }
 
   .flag-line {
