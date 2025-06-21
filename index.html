@@ -160,6 +160,29 @@
   </div>
 </div>
 
+  <audio id="bg-music" loop>
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.15);
+    color: #00fff7;
+    border: 1px solid #00fff7;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  ">🔊 Music On</button>
+</div>
+
 <!-- Main Website Content (Hidden Initially) -->
 <div id="main-website" style="display: none;">
  
@@ -340,6 +363,38 @@ header img {
     }
     document.getElementById('entry-card').style.display = 'none';
     document.getElementById('main-website').style.display = 'block';
+  }
+  </script>
+  
+  <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.querySelector("#music-toggle button");
+  let isPlaying = false;
+
+  // Try to play music on user interaction
+  function enableMusicAutoplay() {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        btn.textContent = "🔊 Music On";
+      }).catch(() => {
+        btn.textContent = "🔇 Music Off";
+      });
+    }
+    window.removeEventListener("click", enableMusicAutoplay);
+  }
+
+  window.addEventListener("click", enableMusicAutoplay);
+
+  function toggleMusic() {
+    if (isPlaying) {
+      music.pause();
+      btn.textContent = "🔇 Music Off";
+    } else {
+      music.play();
+      btn.textContent = "🔊 Music On";
+    }
+    isPlaying = !isPlaying;
   }
   </script>
 
