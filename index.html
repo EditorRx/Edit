@@ -162,30 +162,8 @@
 
 <!-- Main Website Content (Hidden Initially) -->
 <div id="main-website" style="display: none;">
-
-  <audio id="bg-music" autoplay loop muted>
-  <source src="music/pirate_theme.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<div id="music-toggle" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10000;
-">
-  <button onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  ">🔊 Music On</button>
-</div>
-   
-   <div class="marquee">
+ 
+  <div class="marquee">
     <span>Welcome to Rahul 𔒝 kushwaha Edit store ~ Premium Edit Showcase!</span>
   </div>
 
@@ -347,35 +325,6 @@ header img {
     <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Feditorrx.github.io%2FEdit%2F&label=Viewers&countColor=%23263759&style=plastic&labelStyle=none" alt="Viewers Count"/>
   </a>
   </div>
-
-  <script>
-  const music = document.getElementById("bg-music");
-  const btn = document.querySelector("#music-toggle button");
-
-  let isPlaying = true;
-
-  window.addEventListener("load", () => {
-    const playPromise = music.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay might be blocked
-        isPlaying = false;
-        btn.textContent = "🔇 Music Off";
-      });
-    }
-  });
-
-  function toggleMusic() {
-    if (isPlaying) {
-      music.pause();
-      btn.textContent = "🔇 Music Off";
-    } else {
-      music.play();
-      btn.textContent = "🔊 Music On";
-    }
-    isPlaying = !isPlaying;
-  }
-  </script>
 
   <script>
   function validateEntry() {
