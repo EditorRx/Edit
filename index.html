@@ -18,30 +18,7 @@
       font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
     }
-
-    <audio id="bg-music" loop>
-  <source src="music/pirate_theme.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
-
-<div id="music-toggle" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 10000;
-">
-  <button onclick="toggleMusic()" style="
-    background: rgba(255, 255, 255, 0.15);
-    color: #00fff7;
-    border: 1px solid #00fff7;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-  ">▶️ Play Music</button>
-</div>
-
+      
      .entry-card {
       position: fixed;
       top: 0;
@@ -329,23 +306,6 @@ header img {
   </footer>
   
   <script>
-  const music = document.getElementById("bg-music");
-  const btn = document.querySelector("#music-toggle button");
-  let isPlaying = false;
-
-  function toggleMusic() {
-    if (!isPlaying) {
-      music.play();
-      btn.textContent = "⏸️ Pause Music";
-    } else {
-      music.pause();
-      btn.textContent = "▶️ Play Music";
-    }
-    isPlaying = !isPlaying;
-  }
-</script>
-  
-  <script>
   const videos = document.querySelectorAll("video");
 
   videos.forEach(video => {
@@ -381,7 +341,49 @@ header img {
     document.getElementById('main-website').style.display = 'block';
   }
   </script>
+
+     <div>
+    <audio id="bg-music" loop autoplay>
+  <source src="music/pirate_theme.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+    </div>
+
+<div id="music-toggle" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+">
+  <button onclick="toggleMusic()" style="
+    background: rgba(255, 255, 255, 0.15);
+    color: #00fff7;
+    border: 1px solid #00fff7;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+  ">▶️ Play Music</button>
+</div>
   
+  <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.querySelector("#music-toggle button");
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (!isPlaying) {
+      music.play();
+      btn.textContent = "⏸️ Pause Music";
+    } else {
+      music.pause();
+      btn.textContent = "▶️ Play Music";
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
+
   
 </body>
 </html>
