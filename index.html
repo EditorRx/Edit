@@ -19,6 +19,41 @@
       line-height: 1.6;
     }
 
+    .entry-card {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a1a40, #24243e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    .entry-card input {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      box-shadow: 0 0 15px gold;
+    }
+
+    .entry-card button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #24243e;
+      color: #00fff7;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00fff7;
+    }
+    
     .marquee {
       width: 100%;
       overflow: hidden;
@@ -115,8 +150,20 @@
   </style>
 </head>
 <body>
+  <!-- Entry Card -->
+<div id="entry-card" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; z-index: 99999;">
+  <div style="background: rgba(0, 0, 0, 0.6); padding: 30px 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px gold;">
+    <h2 style="color: white; margin-bottom: 20px;">Enter Your Info</h2>
+    <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
+    <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
+    <button onclick="validateEntry()" style="background: #24243e; color: #00fff7; padding: 10px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">View Premium Edits</button>
+  </div>
+</div>
 
-  <div class="marquee">
+<!-- Main Website Content (Hidden Initially) -->
+<div id="main-website" style="display: none;">
+   
+   <div class="marquee">
     <span>Welcome to Rahul 𔒝 kushwaha Edit store ~ Premium Edit Showcase!</span>
   </div>
 
@@ -278,6 +325,23 @@ header img {
     <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Feditorrx.github.io%2FEdit%2F&label=Viewers&countColor=%23263759&style=plastic&labelStyle=none" alt="Viewers Count"/>
   </a>
   </div>
+
+  <script>
+  function validateEntry() {
+    const name = document.getElementById('username').value.trim();
+    const age = parseInt(document.getElementById('userage').value);
+    if (!name || isNaN(age)) {
+      alert("Please fill in both name and age.");
+      return;
+    }
+    if (age < 6) {
+      alert("Sorry, you must be at least 6 years old to view this site.");
+      return;
+    }
+    document.getElementById('entry-card').style.display = 'none';
+    document.getElementById('main-website').style.display = 'block';
+  }
+  </script>
 
 </body>
 </html>
