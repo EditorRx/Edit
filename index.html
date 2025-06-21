@@ -322,15 +322,15 @@ header img {
   const videos = document.querySelectorAll("video");
 
   videos.forEach(video => {
-    video.addEventListener("play", () => {
-      if (!music.paused) {
-        music.pause();
-      }
-    });
-
     video.addEventListener("pause", () => {
       if (isPlaying) {
         music.play();
+      }
+    });
+
+    video.addEventListener("play", () => {
+      if (!music.paused) {
+        music.pause();
       }
     });
 
