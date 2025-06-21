@@ -249,7 +249,7 @@ header img {
     <source src="Edits/Edit3.mp4" type="video/mp4">
   </video>
   <p class="video-title" style="margin-top: 5px; color: #c8ed42; font-size: 0.9rem;">
-    Edit 3: 6 Avengers × Life force [RJ pasin].
+    Edit 3: 6 Avengers × Life force [Rj pasin].
   </p>
       </div>
       <div class="video-block" style="text-align: center;">
@@ -428,6 +428,30 @@ videos.forEach(video => {
     isPlaying = !isPlaying;
   }
 </script>
+
+  <script>
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach(video => {
+    video.addEventListener("play", () => {
+      if (!music.paused) {
+        music.pause();
+      }
+    });
+
+    video.addEventListener("pause", () => {
+      if (isPlaying) {
+        music.play();
+      }
+    });
+
+    video.addEventListener("ended", () => {
+      if (isPlaying) {
+        music.play();
+      }
+    });
+  });
+  </script>
 
   
 </body>
