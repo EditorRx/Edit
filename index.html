@@ -249,7 +249,7 @@ header img {
     <source src="Edits/Edit3.mp4" type="video/mp4">
   </video>
   <p class="video-title" style="margin-top: 5px; color: #c8ed42; font-size: 0.9rem;">
-    Edit 3: 6 Avengers × Life force [Rj pasin].
+    Edit 3: 6 Avengers × Life force [RJ pasin].
   </p>
       </div>
       <div class="video-block" style="text-align: center;">
@@ -361,8 +361,56 @@ header img {
     font-size: 0.85rem;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-  ">▶️ Play Music</button>
+  ">🔊Music on</button>
 </div>
+
+  <script>
+function validateEntry() {
+  const name = document.getElementById('username').value.trim();
+  const age = parseInt(document.getElementById('userage').value);
+  if (!name || isNaN(age)) {
+    alert("Please fill in both name and age.");
+    return;
+  }
+  if (age < 6) {
+    alert("Sorry, you must be at least 6 years old to view this site.");
+    return;
+  }
+
+  // Hide entry, show site
+  document.getElementById('entry-card').style.display = 'none';
+  document.getElementById('main-website').style.display = 'block';
+
+  // Autoplay background music
+  const bgMusic = document.getElementById('bg-music');
+  bgMusic.play();
+}
+  </script>
+
+  <script>
+const videos = document.querySelectorAll("video");
+const bgMusic = document.getElementById("bg-music");
+
+videos.forEach(video => {
+  video.addEventListener("play", () => {
+    if (!bgMusic.paused) {
+      bgMusic.pause();
+    }
+  });
+
+  video.addEventListener("pause", () => {
+    if (document.getElementById("main-website").style.display !== 'none') {
+      bgMusic.play();
+    }
+  });
+
+  video.addEventListener("ended", () => {
+    if (document.getElementById("main-website").style.display !== 'none') {
+      bgMusic.play();
+    }
+  });
+});
+  </script>
   
   <script>
   const music = document.getElementById("bg-music");
@@ -372,10 +420,10 @@ header img {
   function toggleMusic() {
     if (!isPlaying) {
       music.play();
-      btn.textContent = "⏸️ Pause Music";
+      btn.textContent = "🔇 Music off";
     } else {
       music.pause();
-      btn.textContent = "▶️ Play Music";
+      btn.textContent = "🔊 Music on";
     }
     isPlaying = !isPlaying;
   }
