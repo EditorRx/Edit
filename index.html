@@ -165,7 +165,7 @@
   <!-- Entry Card -->
 <div id="entry-card" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #70c4a8, #7c91e6); display: flex; align-items: center; justify-content: center; z-index: 99999;">
   <div style="background: rgba(0, 0, 0, 0.6); padding: 30px 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px gold;">
-    <h2 style="color: white; margin-bottom: 20px;">MAINTENANCE(visit after few minutes)</h2>
+    <h2 style="color: white; margin-bottom: 20px;">MAINTENANCE[visit after few minutes]</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
     <input type="text" id="userpass" placeholder="🔒Enter authorized passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #ff1e00;" /><br/>
@@ -239,7 +239,7 @@
     <header>
   <div class="logo-electric-wrapper">
   <img src="logo/logo7.png" alt="Logo" class="electric-logo">
-  <img src="Edits/lightning-spikes.svg" alt="Electric Spikes" class="electric-effect">
+  <object data="assets/lighting-spikes.svg" type="image/svg+xml" class="electric-effect"></object>
   </div>
 
  <style>
@@ -259,14 +259,14 @@
 
 .electric-effect {
   position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 80px;
-  height: 80px;
+  top: -5px;
+  left: -5px;
+  width: 70px;
+  height: 70px;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.9;
-  animation: electricPulse 1s ease-in-out infinite;
+  opacity: 1;
+  animation: electricFlash 1s infinite ease-in-out alternate;
 }
 
 @keyframes glowSkyBlue {
@@ -274,9 +274,19 @@
   50% { box-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7; }
 }
 
-@keyframes electricPulse {
-  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.85; }
-  50% { transform: rotate(2deg) scale(1.04); opacity: 1; }
+@keyframes electricFlash {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.03) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(-3deg);
+    opacity: 0.9;
+  }
 }
   </style>
       
