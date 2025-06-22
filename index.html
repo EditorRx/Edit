@@ -245,24 +245,36 @@
   margin-bottom: 10px;
   box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 45px #FFD700;
 ">
-    <style>
-@keyframes goldGlow {
-  0% { box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
-  50% { box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
-  100% { box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+
+<style>
+@keyframes electricFlicker {
+  0% {
+    box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+  }
+  25% {
+    box-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff, 0 0 50px #00f7ff;
+  }
+  50% {
+    box-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+  }
+  75% {
+    box-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00f7ff, 0 0 25px #00f7ff;
+  }
 }
 
-      /* Only apply to logo image */
+  /* Only apply to logo image */
 header img {
-  animation: goldGlow 2s ease-in-out infinite;
+  animation: electricFlicker 1.5s ease-in-out infinite;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
 }
-
-    </style>
+</style>
 
     <style>
 .glow-border-bottom {
