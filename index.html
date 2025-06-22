@@ -374,20 +374,6 @@ header img {
   <footer data-animate>
     Created by <strong>RSG™</strong> - Rahul Kushwaha
   </footer>
-  
-  <script>
-  const videos = document.querySelectorAll("video");
-
-  videos.forEach(video => {
-    video.addEventListener("play", () => {
-      videos.forEach(otherVideo => {
-        if (otherVideo !== video) {
-          otherVideo.pause();
-        }
-      });
-    });
-  });
-  </script> 
     
   <div style="position: fixed; bottom: 10px; left: 10px; z-index: 9999;">
   <a href="https://visitorbadge.io/status?path=https%3A%2F%2Feditorrx.github.io%2FEdit%2F" target="_blank">
@@ -445,7 +431,7 @@ header img {
   ">🔇 pause music</button>
 </div>
 
-<script>
+  <script>
   const music = document.getElementById("bg-music");
   const btn = document.querySelector("#music-toggle button");
   let isPlaying = true;
@@ -461,7 +447,29 @@ header img {
       isPlaying = false;
     }
   }
-</script>
+
+  const videos = document.querySelectorAll("video");
+
+  videos.forEach(video => {
+    video.addEventListener("play", () => {
+      videos.forEach(otherVideo => {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+        }
+      });
+      // Pause music if video is played
+      music.pause();
+    });
+
+    video.addEventListener("pause", () => {
+      if (isPlaying) music.play();
+    });
+
+    video.addEventListener("ended", () => {
+      if (isPlaying) music.play();
+    });
+  });
+  </script>
 
   <script>
 function validateEntry() {
