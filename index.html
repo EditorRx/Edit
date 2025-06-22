@@ -156,6 +156,7 @@
     <h2 style="color: white; margin-bottom: 20px;">verify you're Human!</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
+    <input type="text" id="userpass" placeholder="Enter passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <button onclick="validateEntry()" style="background: #24243e; color: #00fff7; padding: 10px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">View Premium Edits</button>
   </div>
 </div>
@@ -386,16 +387,27 @@ header img {
   function validateEntry() {
     const name = document.getElementById('username').value.trim();
     const age = parseInt(document.getElementById('userage').value);
-    if (!name || isNaN(age)) {
-      alert("Please fill in both name and age.");
+    const pass = document.getElementById('userpass').value.trim();
+    const correctPasscode = "rsg123"; // <-- change this anytime
+
+    if (!name || isNaN(age) || !pass) {
+      alert("Please fill in all fields: name, age, and passcode.");
       return;
     }
+
     if (age < 6) {
       alert("Sorry, you must be at least 6 years old to view this site.");
       return;
     }
+
+    if (pass !== correctPasscode) {
+      alert("You're blocked to enter in this website.");
+      return;
+    }
+
     document.getElementById('entry-card').style.display = 'none';
     document.getElementById('main-website').style.display = 'block';
+    if (isPlaying) music.play();
   }
   </script>
 
