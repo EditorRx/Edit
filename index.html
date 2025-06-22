@@ -168,7 +168,7 @@
     <h2 style="color: white; margin-bottom: 20px;">verify you're Human!</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
-    <input type="text" id="userpass" placeholder="🔒Enter passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #ff1e00;" /><br/>
+    <input type="text" id="userpass" placeholder="🔒Enter authorized passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #ff1e00;" /><br/>
     <button onclick="validateEntry()" style="background: #24243e; color: #00fff7; padding: 10px 25px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">View Premium Edits</button>
   </div>
 </div>
@@ -247,27 +247,36 @@
 ">
 
 <style>
-@keyframes electricFlicker {
+@keyframes lightningZap {
   0% {
-    box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+    filter: drop-shadow(0 0 4px #00f7ff);
+    transform: rotate(0deg) scale(1);
   }
-  25% {
-    box-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff, 0 0 50px #00f7ff;
+  20% {
+    filter: drop-shadow(0 0 8px #00f7ff) brightness(2);
+    transform: rotate(1deg) scale(1.02);
   }
-  50% {
-    box-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+  40% {
+    filter: drop-shadow(0 0 20px #00f7ff) brightness(4);
+    transform: rotate(-1deg) scale(1.03);
   }
-  75% {
-    box-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff, 0 0 60px #00f7ff;
+  60% {
+    filter: drop-shadow(0 0 10px #00f7ff) brightness(2.5);
+    transform: rotate(1.5deg) scale(1.01);
+  }
+  80% {
+    filter: drop-shadow(0 0 25px #00f7ff) brightness(3.5);
+    transform: rotate(-1.2deg) scale(1.03);
   }
   100% {
-    box-shadow: 0 0 10px #00f7ff, 0 0 25px #00f7ff;
+    filter: drop-shadow(0 0 6px #00f7ff);
+    transform: rotate(0deg) scale(1);
   }
 }
-
+ 
   /* Only apply to logo image */
 header img {
-  animation: electricFlicker 1.5s ease-in-out infinite;
+  animation: lightningZap 1s ease-in-out infinite;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -275,7 +284,7 @@ header img {
   margin-bottom: 10px;
 }
 </style>
-
+      
     <style>
 .glow-border-bottom {
   position: fixed;
