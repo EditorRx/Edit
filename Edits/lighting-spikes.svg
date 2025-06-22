@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#00fff7" stroke-width="1.5" stroke-linecap="round">
+    <path d="M50 50 L60 30" />
+    <path d="M50 50 L40 30" />
+    <path d="M50 50 L70 40" />
+    <path d="M50 50 L30 40" />
+    <path d="M50 50 L60 70" />
+    <path d="M50 50 L40 70" />
+    <path d="M50 50 L75 55" />
+    <path d="M50 50 L25 55" />
+  </g>
+</svg>
