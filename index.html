@@ -237,11 +237,47 @@
   </header>
   
     <header>
-  <div class="electric-logo">
-    <img src="logo/logo.png" alt="Logo" />
+  <div class="logo-container">
+  <div class="electric-spikes"></div>
+  <img src="logo.png" alt="Logo" class="main-logo" />
   </div>
 
  <style>
+   .logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.main-logo {
+  width: 80px;
+  z-index: 2;
+  position: relative;
+}
+
+.electric-spikes {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #00f2ff 20%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: electricFlash 1.5s infinite;
+  pointer-events: none;
+  box-shadow:
+    0 0 10px #00f2ff,
+    0 0 20px #00f2ff,
+    0 0 40px #00f2ff,
+    0 0 60px #00f2ff;
+  mask-image: url('lightning-spikes.svg'); /* design like sketch */
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
    .electric-logo {
   position: relative;
   display: inline-block;
@@ -252,7 +288,7 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  animation: glowPulse 1s ease-in-out infinite;
+  animation: glowPulse 2s ease-in-out infinite;
   z-index: 2;
   position: relative;
 }
@@ -276,7 +312,7 @@
   border-radius: 50%;
   z-index: 1;
   pointer-events: none;
-  animation: electricSpike 3.5s infinite ease-in-out;
+  animation: electricSpike 1.5s infinite ease-in-out;
 }
 
 @keyframes electricSpike {
