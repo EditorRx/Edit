@@ -147,6 +147,18 @@
       font-size: 12px;
       color: #D3D3D3;
     }
+
+    [data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+    
   </style>
 </head>
 <body>
@@ -478,6 +490,20 @@ function validateEntry() {
 
   if (isPlaying) music.play(); // ✅ resume only if toggle is ON
 }
+  </script>
+
+  <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    observer.observe(el);
+  });
   </script>
 
   
