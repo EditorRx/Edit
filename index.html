@@ -165,7 +165,7 @@
   <!-- Entry Card -->
 <div id="entry-card" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #70c4a8, #7c91e6); display: flex; align-items: center; justify-content: center; z-index: 99999;">
   <div style="background: rgba(0, 0, 0, 0.6); padding: 30px 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px gold;">
-    <h2 style="color: white; margin-bottom: 20px;">MAINTENANCE[wait few minutes]</h2>
+    <h2 style="color: white; margin-bottom: 20px;">MAINTENANCE[open in 10 Minutes]</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #1fecf0;" /><br/>
     <input type="text" id="userpass" placeholder="🔒Enter authorized passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #ff1e00;" /><br/>
@@ -237,13 +237,14 @@
   </header>
   
     <header>
-  <div class="logo-electric-wrapper">
+<div class="logo-electric-wrapper">
   <img src="logo/logo7.png" alt="Logo" class="electric-logo">
-  <object data="effects/lighting-spikes.svg" type="image/svg+xml" class="electric-effect"></object>
-  </div>
+  <div class="rotating-aura"></div>
+</div>
 
  <style>
-.logo-electric-wrapper {
+   
+   .logo-electric-wrapper {
   position: relative;
   display: inline-block;
 }
@@ -257,16 +258,18 @@
   animation: glowSkyBlue 2s ease-in-out infinite;
 }
 
-.electric-effect {
+.rotating-aura {
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 70px;
-  height: 70px;
-  pointer-events: none;
+  top: -6px;
+  left: -6px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid #00fff7;
+  box-shadow: 0 0 15px #00fff7, 0 0 30px #00fff7;
   z-index: 1;
-  opacity: 1;
-  animation: electricFlash 1s infinite ease-in-out alternate;
+  animation: rotateAura 3s linear infinite;
+  opacity: 0.9;
 }
 
 @keyframes glowSkyBlue {
@@ -274,20 +277,11 @@
   50% { box-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7; }
 }
 
-@keyframes electricFlash {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.03) rotate(5deg);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1) rotate(-3deg);
-    opacity: 0.9;
-  }
+@keyframes rotateAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
+
   </style>
       
     <style>
