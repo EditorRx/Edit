@@ -449,55 +449,36 @@ header img {
       isPlaying = false;
     }
   }
+</script>
 
-  // play music after entry card
-  function validateEntry() {
-    const name = document.getElementById('username').value.trim();
-    const age = parseInt(document.getElementById('userage').value);
-    const pass = document.getElementById('userpass').value.trim();
-  const correctPasscode = "rkk"; // <-- change it if needed
+  <script>
+function validateEntry() {
+  const name = document.getElementById('username').value.trim();
+  const age = parseInt(document.getElementById('userage').value);
+  const pass = document.getElementById('userpass').value.trim();
+  const correctPasscode = "rkk"; // <-- your editable passcode
 
   if (!name || isNaN(age) || !pass) {
     alert("Please fill in all fields: name, age, and passcode.");
     return;
   }
-    }
-    if (age < 6) {
-      alert("Sorry, you must be at least 6 years old to view this site.");
-      return;
-    }
+
+  if (age < 6) {
+    alert("Sorry, you must be at least 6 years old to view this site.");
+    return;
+  }
 
   if (pass !== correctPasscode) {
     alert("You're blocked to enter in this website.");
     return;
   }
 
-    document.getElementById('entry-card').style.display = 'none';
-    document.getElementById('main-website').style.display = 'block';
-    if (isPlaying) music.play();  // start only if toggle is on
-  }
+  document.getElementById('entry-card').style.display = 'none';
+  document.getElementById('main-website').style.display = 'block';
 
-  // Auto pause music on video play, resume on pause/end
-  document.querySelectorAll("video").forEach(video => {
-    video.addEventListener("play", () => {
-      if (!music.paused) {
-        music.pause();
-      }
-    });
-
-    video.addEventListener("pause", () => {
-      if (isPlaying) {
-        music.play();
-      }
-    });
-
-    video.addEventListener("ended", () => {
-      if (isPlaying) {
-        music.play();
-      }
-    });
-  });
-</script>
+  if (isPlaying) music.play(); // ✅ resume only if toggle is ON
+}
+  </script>
 
   
 </body>
