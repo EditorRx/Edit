@@ -237,53 +237,46 @@
   </header>
   
     <header>
-    <img src="logo/logo.png" alt="Logo" style="
-  width: 60px; 
-  height: 60px; 
-  border-radius: 50%; 
-  object-fit: cover; 
-  margin-bottom: 10px;
-  box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700, 0 0 35px #FFD700;
-">
+    <div class="logo-wrapper">
+  <div class="electric-circle"></div>
+  <img src="logo/logo.png" class="logo-img" alt="Logo">
+    </div>
 
-<style>
-@keyframes lightningZap {
-  0% {
-    filter: drop-shadow(0 0 4px #00f7ff);
-    transform: rotate(0deg) scale(1);
-  }
-  20% {
-    filter: drop-shadow(0 0 8px #00f7ff) brightness(2);
-    transform: rotate(1deg) scale(1.02);
-  }
-  40% {
-    filter: drop-shadow(0 0 20px #00f7ff) brightness(4);
-    transform: rotate(-1deg) scale(1.03);
-  }
-  60% {
-    filter: drop-shadow(0 0 10px #00f7ff) brightness(2.5);
-    transform: rotate(1.5deg) scale(1.01);
-  }
-  80% {
-    filter: drop-shadow(0 0 25px #00f7ff) brightness(3.5);
-    transform: rotate(-1.2deg) scale(1.03);
-  }
-  100% {
-    filter: drop-shadow(0 0 6px #00f7ff);
-    transform: rotate(0deg) scale(1);
-  }
+      <style>
+      .logo-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
 }
- 
-  /* Only apply to logo image */
-header img {
-  animation: lightningZap 1s ease-in-out infinite;
+
+.electric-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.35) 0%, rgba(0,255,255,0) 70%);
+  border: 2px dashed rgba(0, 255, 255, 0.3);
+  animation: rotateElectric 4s linear infinite;
+  z-index: -1;
+  filter: drop-shadow(0 0 10px #00f7ff) drop-shadow(0 0 20px #00f7ff);
+}
+
+@keyframes rotateElectric {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.logo-img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
+  box-shadow: none; /* Remove gold glow */
 }
-</style>
+  </style>
       
     <style>
 .glow-border-bottom {
