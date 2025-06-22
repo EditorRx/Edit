@@ -153,7 +153,7 @@
   <!-- Entry Card -->
 <div id="entry-card" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #FFD700, #FFA500); display: flex; align-items: center; justify-content: center; z-index: 99999;">
   <div style="background: rgba(0, 0, 0, 0.6); padding: 30px 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px gold;">
-    <h2 style="color: white; margin-bottom: 20px;">verify you're Human!</h2>
+    <h2 style="color: white; margin-bottom: 20px;">prove you're Human!</h2>
     <input type="text" id="username" placeholder="Enter your name" style="padding: 10px 15px; margin-bottom: 15px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <input type="number" id="userage" placeholder="Enter your age" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
     <input type="text" id="userpass" placeholder="Enter passcode" style="padding: 10px 15px; margin-bottom: 20px; border: none; border-radius: 8px; outline: none; background: #222; color: white; box-shadow: 0 0 10px #FFD700;" /><br/>
@@ -454,14 +454,24 @@ header img {
   function validateEntry() {
     const name = document.getElementById('username').value.trim();
     const age = parseInt(document.getElementById('userage').value);
-    if (!name || isNaN(age)) {
-      alert("Please fill in both name and age.");
-      return;
+    const pass = document.getElementById('userpass').value.trim();
+  const correctPasscode = "rkk"; // <-- change it if needed
+
+  if (!name || isNaN(age) || !pass) {
+    alert("Please fill in all fields: name, age, and passcode.");
+    return;
+  }
+    
     }
     if (age < 6) {
       alert("Sorry, you must be at least 6 years old to view this site.");
       return;
     }
+
+  if (pass !== correctPasscode) {
+    alert("You're blocked to enter in this website.");
+    return;
+  }
 
     document.getElementById('entry-card').style.display = 'none';
     document.getElementById('main-website').style.display = 'block';
