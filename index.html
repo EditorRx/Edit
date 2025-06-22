@@ -151,7 +151,7 @@
     [data-animate] {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 [data-animate].animate {
@@ -296,9 +296,9 @@ header img {
   </header>
 
   <section>
-    <h2>𓆩My Edits𓆪</h2>
+    <h2 data-animate>𓆩My Edits𓆪</h2>
     <div class="gallery">
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls>
         <source src="Edits/Edit1.mp4" type="video/mp4">
   </video>
@@ -306,7 +306,7 @@ header img {
     Edit 1: Just a small Intro.
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls>
         <source src="Edits/Edit2.mp4" type="video/mp4">
   </video>
@@ -314,7 +314,7 @@ header img {
     Edit 2:  Zn Fodástica 2 × Thor vs hulk fight.
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls width="200" loading="lazy">
     <source src="Edits/Edit3.mp4" type="video/mp4">
   </video>
@@ -322,7 +322,7 @@ header img {
     Edit 3: 6 Avengers × Life force [Rj pasin].
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls>
         <source src="Edits/Edit4.mp4" type="video/mp4">
   </video>
@@ -330,7 +330,7 @@ header img {
     Edit 4:  Endgame × Slava & village remix funk.
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
 <video controls>
         <source src="Edits/Edit5.mp4" type="video/mp4">
 </video>
@@ -338,7 +338,7 @@ header img {
     Edit 5:  Thor × Space [Naomi].
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls>
         <source src="Edits/Edit6.mp4" type="video/mp4">
   </video>
@@ -346,11 +346,11 @@ header img {
     Edit 6:  Let her think × VIDRADO EM VOCE REMIX.
   </p>
       </div>
-      <div class="video-block" style="text-align: center;">
+      <div class="video-block" data-animate style="text-align: center;">
   <video controls>
         <source src="Edits/Edit7.mp4" type="video/mp4">
   </video>
-  <p class="video-title" style="margin-top: 5px; color: #c8ed42; font-size: 0.9rem;">
+  <p class="video-title" data-animate style="margin-top: 5px; color: #c8ed42; font-size: 0.9rem;">
     Edit 7:  𓆩Rsg × AVAGARD𓆪
   </p>
       </div>
@@ -364,14 +364,14 @@ header img {
     </p>
   </section>
 
-  <section class="reminder">
-  <h2 style="color: red; text-align: left;">🎗️info</h2>
+  <section class="reminder" data-animate>
+  <h2 style="color: red; text-align: left;">🎧info</h2>
   <p>
     "Editrek" is my own YouTube channel. But due to some reason, it is no longer with me and I no longer have control over it.
   </p>
   </section>
 
-  <footer>
+  <footer data-animate>
     Created by <strong>RSG™</strong> - Rahul Kushwaha
   </footer>
   
@@ -496,8 +496,11 @@ function validateEntry() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
+  entry.target.classList.add('animate');
+} else {
+  entry.target.classList.remove('animate');
       }
+      
     });
   });
 
