@@ -419,7 +419,7 @@
   }
 
   if (pass !== correctPasscode) {
-    alert("You're blocked to enter in this website.");
+    alert("Enter correct passcode.");
     return;
   }
 
@@ -496,7 +496,7 @@ function validateEntry() {
   const name = document.getElementById('username').value.trim();
   const age = parseInt(document.getElementById('userage').value);
   const pass = document.getElementById('userpass').value.trim();
-  const correctPasscode = "Deshi Chhora"; // <-- your editable passcode
+  const correctPasscode = "Rahul kumar"; // <-- your editable passcode
 
   if (!name || isNaN(age) || !pass) {
     alert("Please fill in all fields: name, age, and passcode.");
